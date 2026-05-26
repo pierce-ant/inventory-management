@@ -225,33 +225,9 @@ export default {
 </script>
 
 <style scoped>
-.page-header {
-  margin-bottom: 1.5rem;
-}
-
-.page-header h2 {
-  margin-bottom: 0.25rem;
-}
-
-.page-header p {
-  color: #64748b;
-  font-size: 0.875rem;
-}
-
+/* card-header: only add gap; all other properties come from global */
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin: 0;
+  gap: var(--space-5);
 }
 
 .search-box {
@@ -272,20 +248,21 @@ export default {
 
 .search-input {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  height: 36px;
+  padding: 0 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
   color: #0f172a;
   background: #f8fafc;
-  transition: all 0.2s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #2563eb;
   background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .search-input::placeholder {
@@ -298,13 +275,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
+  padding: var(--space-1);
   background: transparent;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   color: #94a3b8;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.15s, color 0.15s;
 }
 
 .clear-search:hover {
@@ -315,17 +292,6 @@ export default {
 .clear-search svg {
   width: 18px;
   height: 18px;
-}
-
-.loading,
-.error {
-  padding: 2rem;
-  text-align: center;
-  color: #64748b;
-}
-
-.error {
-  color: #ef4444;
 }
 
 .clickable-row {

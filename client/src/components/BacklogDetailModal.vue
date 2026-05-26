@@ -140,8 +140,8 @@ const formatDate = (dateString) => {
 
 .modal-container {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
   max-width: 700px;
   width: 100%;
   max-height: 90vh;
@@ -154,15 +154,15 @@ const formatDate = (dateString) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid #e2e8f0;
 }
 
 .modal-title {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   color: #0f172a;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
 }
 
 .close-button {
@@ -186,7 +186,7 @@ const formatDate = (dateString) => {
 .modal-body {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+  padding: var(--space-5);
 }
 
 .shortage-header {
@@ -332,28 +332,32 @@ const formatDate = (dateString) => {
 }
 
 .modal-footer {
-  padding: 1.5rem;
+  padding: var(--space-4) var(--space-5);
   border-top: 1px solid #e2e8f0;
   display: flex;
   justify-content: flex-end;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .btn-secondary {
-  padding: 0.625rem 1.25rem;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
   color: #334155;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  border: 1px solid #e2e8f0;
+  height: 38px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-sm);
   font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .btn-secondary:hover {
-  background: #e2e8f0;
+  background: #f8fafc;
   border-color: #cbd5e1;
 }
 
