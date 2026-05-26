@@ -6,6 +6,7 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    restocking: 'Restocking',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -112,6 +113,7 @@ export default {
     onTimeDelivery: 'On-Time Delivery',
     itemsCount: '{count} items',
     quantity: 'Qty',
+    submittedOrders: 'Submitted Orders',
     table: {
       orderNumber: 'Order Number',
       orderId: 'Order ID',
@@ -125,7 +127,9 @@ export default {
       totalValue: 'Total Value',
       status: 'Status',
       expectedDelivery: 'Expected Delivery',
-      actualDelivery: 'Actual Delivery'
+      actualDelivery: 'Actual Delivery',
+      leadTime: 'Lead Time',
+      totalCost: 'Total Cost'
     }
   },
 
@@ -188,6 +192,44 @@ export default {
     }
   },
 
+  // Restocking
+  restocking: {
+    title: 'Restocking',
+    description: 'Plan restocking purchases against your available budget',
+    budgetTitle: 'Available Budget',
+    budgetHint: 'Recommendations update as you adjust the budget',
+    recommendations: 'Restock Recommendations',
+    itemsNeedingRestock: 'Items Needing Restock',
+    selectedItems: 'Selected Items',
+    selectedCost: 'Selected Cost',
+    budgetRemaining: 'Budget Remaining',
+    overBudget: 'Selection exceeds the available budget',
+    placeOrder: 'Place Order',
+    placingOrder: 'Placing Order...',
+    orderPlaced: 'Restocking order placed',
+    leadTime: 'Lead Time',
+    leadTimeDays: '{days} days',
+    expectedDelivery: 'Expected Delivery',
+    viewInOrders: 'View in Orders',
+    noRecommendations: 'All items are sufficiently stocked for the forecasted demand',
+    budgetTooLow: 'The budget is too low for any recommended item',
+    table: {
+      include: 'Include',
+      sku: 'SKU',
+      itemName: 'Item Name',
+      category: 'Category',
+      warehouse: 'Warehouse',
+      onHand: 'On Hand',
+      reorderPoint: 'Reorder Point',
+      forecastedDemand: 'Forecasted Demand',
+      trend: 'Trend',
+      qtyToOrder: 'Qty to Order',
+      unitCost: 'Unit Cost',
+      lineCost: 'Line Cost',
+      leadTime: 'Lead Time'
+    }
+  },
+
   // Filters
   filters: {
     timePeriod: 'Time Period',
@@ -201,6 +243,7 @@ export default {
   // Statuses
   status: {
     delivered: 'Delivered',
+    submitted: 'Submitted',
     shipped: 'Shipped',
     processing: 'Processing',
     backordered: 'Backordered',

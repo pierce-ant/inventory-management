@@ -7,24 +7,27 @@
           <span class="subtitle">{{ t('nav.subtitle') }}</span>
         </div>
         <nav class="nav-tabs">
-          <router-link to="/" :class="{ active: $route.path === '/' }">
+          <a href="/" :class="{ active: currentPath === '/' }" @click.exact.prevent="navigate('/')">
             {{ t('nav.overview') }}
-          </router-link>
-          <router-link to="/inventory" :class="{ active: $route.path === '/inventory' }">
+          </a>
+          <a href="/inventory" :class="{ active: currentPath === '/inventory' }" @click.exact.prevent="navigate('/inventory')">
             {{ t('nav.inventory') }}
-          </router-link>
-          <router-link to="/orders" :class="{ active: $route.path === '/orders' }">
+          </a>
+          <a href="/orders" :class="{ active: currentPath === '/orders' }" @click.exact.prevent="navigate('/orders')">
             {{ t('nav.orders') }}
-          </router-link>
-          <router-link to="/spending" :class="{ active: $route.path === '/spending' }">
+          </a>
+          <a href="/spending" :class="{ active: currentPath === '/spending' }" @click.exact.prevent="navigate('/spending')">
             {{ t('nav.finance') }}
-          </router-link>
-          <router-link to="/demand" :class="{ active: $route.path === '/demand' }">
+          </a>
+          <a href="/demand" :class="{ active: currentPath === '/demand' }" @click.exact.prevent="navigate('/demand')">
             {{ t('nav.demandForecast') }}
-          </router-link>
-          <router-link to="/reports" :class="{ active: $route.path === '/reports' }">
+          </a>
+          <a href="/restocking" :class="{ active: currentPath === '/restocking' }" @click.exact.prevent="navigate('/restocking')">
+            {{ t('nav.restocking') }}
+          </a>
+          <a href="/reports" :class="{ active: currentPath === '/reports' }" @click.exact.prevent="navigate('/reports')">
             Reports
-          </router-link>
+          </a>
         </nav>
         <LanguageSwitcher />
         <ProfileMenu
@@ -35,7 +38,7 @@
     </header>
     <FilterBar />
     <main class="main-content">
-      <router-view />
+      <component :is="currentView" />
     </main>
 
     <ProfileDetailsModal
@@ -59,11 +62,19 @@ import { ref, onMounted, computed } from 'vue'
 import { api } from './api'
 import { useAuth } from './composables/useAuth'
 import { useI18n } from './composables/useI18n'
+import { useRouter } from './composables/useRouter'
 import FilterBar from './components/FilterBar.vue'
 import ProfileMenu from './components/ProfileMenu.vue'
 import ProfileDetailsModal from './components/ProfileDetailsModal.vue'
 import TasksModal from './components/TasksModal.vue'
 import LanguageSwitcher from './components/LanguageSwitcher.vue'
+import Dashboard from './views/Dashboard.vue'
+import Inventory from './views/Inventory.vue'
+import Orders from './views/Orders.vue'
+import Demand from './views/Demand.vue'
+import Spending from './views/Spending.vue'
+import Reports from './views/Reports.vue'
+import Restocking from './views/Restocking.vue'
 
 export default {
   name: 'App',
@@ -72,11 +83,31 @@ export default {
     ProfileMenu,
     ProfileDetailsModal,
     TasksModal,
-    LanguageSwitcher
+    LanguageSwitcher,
+    Dashboard,
+    Inventory,
+    Orders,
+    Demand,
+    Spending,
+    Reports,
+    Restocking
   },
   setup() {
     const { currentUser } = useAuth()
     const { t } = useI18n()
+    const { currentPath, navigate } = useRouter()
+
+    const routes = {
+      '/': Dashboard,
+      '/inventory': Inventory,
+      '/orders': Orders,
+      '/demand': Demand,
+      '/spending': Spending,
+      '/restocking': Restocking,
+      '/reports': Reports
+    }
+
+    const currentView = computed(() => routes[currentPath.value] || Dashboard)
     const showProfileDetails = ref(false)
     const showTasks = ref(false)
     const apiTasks = ref([])
@@ -155,7 +186,10 @@ export default {
       tasks,
       addTask,
       deleteTask,
-      toggleTask
+      toggleTask,
+      currentPath,
+      navigate,
+      currentView
     }
   }
 }

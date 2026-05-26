@@ -6,6 +6,7 @@ export default {
     orders: '注文',
     finance: '財務',
     demandForecast: '需要予測',
+    restocking: '在庫補充',
     companyName: '触媒コンポーネンツ',
     subtitle: '在庫管理システム'
   },
@@ -112,6 +113,7 @@ export default {
     onTimeDelivery: '定時配達',
     itemsCount: '{count}件',
     quantity: '数量',
+    submittedOrders: '発注済み補充注文',
     table: {
       orderNumber: '注文番号',
       orderId: '注文ID',
@@ -125,7 +127,9 @@ export default {
       totalValue: '合計金額',
       status: 'ステータス',
       expectedDelivery: '予定配達日',
-      actualDelivery: '実際の配達日'
+      actualDelivery: '実際の配達日',
+      leadTime: 'リードタイム',
+      totalCost: '総コスト'
     }
   },
 
@@ -188,6 +192,44 @@ export default {
     }
   },
 
+  // Restocking
+  restocking: {
+    title: '在庫補充',
+    description: '利用可能な予算に基づいて補充発注を計画',
+    budgetTitle: '利用可能予算',
+    budgetHint: '予算を調整すると推奨が更新されます',
+    recommendations: '補充推奨',
+    itemsNeedingRestock: '補充が必要な品目',
+    selectedItems: '選択した品目',
+    selectedCost: '選択コスト',
+    budgetRemaining: '残り予算',
+    overBudget: '選択が利用可能な予算を超えています',
+    placeOrder: '発注する',
+    placingOrder: '発注中...',
+    orderPlaced: '補充注文が発注されました',
+    leadTime: 'リードタイム',
+    leadTimeDays: '{days}日',
+    expectedDelivery: '予定配達日',
+    viewInOrders: '注文で確認',
+    noRecommendations: '予測需要に対してすべての品目の在庫は十分です',
+    budgetTooLow: '予算が少なすぎるため推奨品目を発注できません',
+    table: {
+      include: '選択',
+      sku: 'SKU',
+      itemName: '品目名',
+      category: 'カテゴリ',
+      warehouse: '倉庫',
+      onHand: '手持在庫',
+      reorderPoint: '再注文点',
+      forecastedDemand: '予測需要',
+      trend: 'トレンド',
+      qtyToOrder: '発注数量',
+      unitCost: '単価',
+      lineCost: '小計',
+      leadTime: 'リードタイム'
+    }
+  },
+
   // Filters
   filters: {
     timePeriod: '期間',
@@ -201,6 +243,7 @@ export default {
   // Statuses
   status: {
     delivered: '配達済み',
+    submitted: '発注済み',
     shipped: '出荷済み',
     processing: '処理中',
     backordered: 'バックオーダー',
