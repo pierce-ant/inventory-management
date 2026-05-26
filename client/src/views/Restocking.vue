@@ -411,13 +411,13 @@ export default {
 .budget-body {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .budget-slider-row {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--space-5);
 }
 
 .budget-amount {
@@ -489,14 +489,14 @@ export default {
 .order-success-header {
   font-size: 1rem;
   color: #059669;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
 }
 
 .order-success-details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.625rem 2rem;
-  margin-bottom: 1rem;
+  gap: var(--space-2) var(--space-6);
+  margin-bottom: var(--space-4);
 }
 
 .order-success-row {
@@ -523,7 +523,7 @@ export default {
 /* Empty state — no restock candidates */
 .empty-state {
   text-align: center;
-  padding: 2rem;
+  padding: var(--space-6);
   color: #64748b;
   font-size: 0.938rem;
 }
@@ -534,9 +534,9 @@ export default {
   color: #92400e;
   background: #fef3c7;
   border: 1px solid #fcd34d;
-  border-radius: 6px;
-  padding: 0.625rem 0.875rem;
-  margin-bottom: 1rem;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 /* Table — allow horizontal scroll without wrapping cells */
@@ -555,9 +555,10 @@ export default {
 
 .qty-input {
   width: 80px;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 4px;
+  height: 36px;
+  padding: 0 var(--space-2);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
   font-family: inherit;
   color: #0f172a;
@@ -577,9 +578,9 @@ export default {
 .order-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
   border-top: 1px solid #e2e8f0;
   flex-wrap: wrap;
 }
@@ -592,47 +593,32 @@ export default {
 }
 
 /*
- * Primary order button — styled after TasksModal's .task-add-btn:
- * purple gradient, white text, float-up hover, disabled opacity.
+ * Primary order button — aligned with global .btn-primary metrics.
  */
 .btn-primary-order {
-  padding: 0.75rem 1.75rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563eb;
   color: #ffffff;
   border: none;
-  border-radius: 8px;
-  font-size: 0.938rem;
-  font-weight: 600;
+  height: 38px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-sm);
   font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: background 0.15s;
 }
 
 .btn-primary-order:hover:not(:disabled) {
-  transform: translateY(-2px);
+  background: #1d4ed8;
 }
 
 .btn-primary-order:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-/* Secondary button used on the success card */
-.btn-secondary {
-  padding: 0.75rem 1.5rem;
-  background: #f1f5f9;
-  color: #475569;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.938rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background: #e2e8f0;
 }
 </style>

@@ -492,12 +492,26 @@ export default {
 </script>
 
 <style scoped>
+/* ── KPI stat card accents ────────────────────────────── */
+
+.revenue-card {
+  border-left: 4px solid #0f172a;
+}
+
+.cost-card {
+  border-left: 4px solid #ef4444;
+}
+
+.profit-card {
+  border-left: 4px solid #3b82f6;
+}
+
 .stat-change {
-  margin-top: 0.75rem;
+  margin-top: var(--space-3);
   font-size: 0.875rem;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: var(--space-1);
 }
 
 .stat-change.positive {
@@ -513,20 +527,33 @@ export default {
   font-size: 1rem;
 }
 
-.chart-card {
-  margin-bottom: 1.75rem;
+.stat-meta {
+  margin-top: var(--space-2);
+  font-size: 0.813rem;
+  color: #64748b;
 }
+
+/* ── Stats grid ───────────────────────────────────────── */
+
+.stats-grid-finance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+/* ── Chart legend ─────────────────────────────────────── */
 
 .chart-legend {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--space-5);
   font-size: 0.875rem;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-2);
   color: #64748b;
 }
 
@@ -543,30 +570,37 @@ export default {
 .legend-dot.revenue-color { background: #0f172a; }
 .legend-dot.cost-color { background: #ef4444; }
 
-.stats-grid-finance {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+/* ── Chart containers ─────────────────────────────────── */
+
+.chart-container {
+  padding: var(--space-5) 0;
 }
 
-.revenue-card {
-  border-left: 4px solid #0f172a;
+.bar-chart {
+  display: flex;
+  gap: var(--space-5);
+  height: 350px;
 }
 
-.cost-card {
-  border-left: 4px solid #ef4444;
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: var(--space-4);
+  font-size: 0.75rem;
+  color: #94a3b8;
+  border-right: 1px solid #e2e8f0;
 }
 
-.profit-card {
-  border-left: 4px solid #3b82f6;
+.chart-area {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 0.5rem;
 }
 
-.stat-meta {
-  margin-top: 0.5rem;
-  font-size: 0.813rem;
-  color: #64748b;
-}
+/* ── Revenue vs cost bars ─────────────────────────────── */
 
 .bar-group-revenue {
   display: flex;
@@ -590,7 +624,7 @@ export default {
 .revenue-bar, .cost-bar {
   width: 50%;
   max-width: 30px;
-  border-radius: 6px 6px 0 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   transition: all 0.3s ease;
   cursor: pointer;
   min-height: 4px;
@@ -609,33 +643,7 @@ export default {
   transform: scaleY(1.05);
 }
 
-.chart-container {
-  padding: 1.5rem 0;
-}
-
-.bar-chart {
-  display: flex;
-  gap: 1.5rem;
-  height: 350px;
-}
-
-.y-axis {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-right: 1rem;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  border-right: 1px solid #e2e8f0;
-}
-
-.chart-area {
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
+/* ── Stacked cost-flow bars ───────────────────────────── */
 
 .bar-group {
   display: flex;
@@ -669,11 +677,11 @@ export default {
 }
 
 .bar-segment:first-child {
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
 }
 
 .bar-segment:last-child {
-  border-radius: 6px 6px 0 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .bar-segment.procurement { background: #3b82f6; }
@@ -686,28 +694,32 @@ export default {
 }
 
 .bar-label {
-  margin-top: 0.5rem;
+  margin-top: var(--space-2);
   font-size: 0.75rem;
   font-weight: 600;
   color: #64748b;
 }
 
+/* ── Two-column bottom grid ───────────────────────────── */
+
 .two-column-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 1.75rem;
+  gap: var(--space-5);
 }
+
+/* ── Category spending breakdown ─────────────────────── */
 
 .category-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-5);
 }
 
 .category-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .category-info {
@@ -764,6 +776,8 @@ export default {
   color: #dc2626;
 }
 
+/* ── Transactions table ───────────────────────────────── */
+
 .transactions-card {
   display: flex;
   flex-direction: column;
@@ -774,11 +788,7 @@ export default {
   max-height: 400px;
 }
 
-.transactions-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
+/* sticky header needs explicit background so it covers rows on scroll */
 .transactions-table thead {
   position: sticky;
   top: 0;
@@ -786,40 +796,16 @@ export default {
   z-index: 1;
 }
 
-.transactions-table th {
-  text-align: left;
-  padding: 0.625rem 0.75rem;
-  font-weight: 600;
-  color: #475569;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.transactions-table th.text-right {
-  text-align: right;
-}
-
-.transactions-table td {
-  padding: 0.75rem 0.75rem;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 0.875rem;
-}
-
-.transactions-table tbody tr {
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.transactions-table tbody tr:hover {
-  background: #f8fafc;
-}
-
+/* blue-tint row hover — overrides the global #f8fafc default */
 .transactions-table tbody tr.clickable-row:hover {
   background: #eff6ff;
 }
 
+.clickable-row {
+  cursor: pointer;
+}
+
+/* column-specific cell styles */
 .transaction-id {
   color: #64748b;
   font-weight: 500;
